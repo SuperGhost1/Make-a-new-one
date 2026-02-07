@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanya Web Biasa </title>
+</head>
+<body onload="generateJamDigital();">
+    <h1>Jam Digital</h1>
+    
+    <h2 id="jam-digital"></h2>
+    
+    <script>
+        const generateJamDigital = () => {
+        let counter = 1;
+        setInterval (() => {
+            let date = new Date();
+            let jam = ( '0'+date.getHours()).substr(-2);
+            let menit = ( '0'+date.getMinutes()).substr(-2);
+            let detik = ( '0'+date.getSeconds()).substr(-2);
+            //document.write(`${jam}:${menit}:${detik}`);
+            document.getElementById('jam-digital').textContent = `${jam}:${menit}:${detik}`;
+            
+            console.log(counter);
+
+            if (counter % 2 === 0){
+                document.body.style.color = "black";
+            } else {
+                document.body.style.color ="maroon";
+            }
+            
+            counter++;
+
+        }, 1000);
+    
+
+
+
+
+    }
+</script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merubah Background</title>
+</head>
+<body>
+    <h1>Ubah Background</h1>
+
+       <button onclick="changeBackgroundColor();">Ubah Warna Background</button>
+
+       <script>
+        function salam (nama) {
+            document.write("Selamat datang, " + nama + "!<br/>");
+        }
+
+        function changeBackgroundColor () {
+            let color = ["black", "brown", "gray", "orange", "maroon"];
+            let index = Math.floor(Math.random() * color.length);
+            console.log(index);
+            console.log(color[index]);
+            document.body.style.backgroundColor = color[index];
+        }    
+       </script>
+<h1>HIDUP SAHRONI</h1>
+<h2><a href="https://youtu.be/FHwBoRvdBZA?si=-UpHyPFhHU17CBlf">InfiltrateTheAirship</a></h2>
+<h2><a href="https://youtu.be/zLrULx680Jc?si=GWtEnqj5wzhTIie9">Lagu Biasa</a></h2>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-xl navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic" aria-controls="navbarBasic" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarBasic">
+            <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#link">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#menu2">Menu 2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#menu3">Menu 3</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#dom">Dom</a>
+              </li>
+
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        <section id="home" class="pt-5 min-vh-100">
+            <h1>Home</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias inventore facilis repudiandae harum consequuntur, odio vero, corrupti autem blanditiis obcaecati saepe quod aliquam nostrum, non eos laudantium rem a magnam.</p>
+        </section>
+        <section id="link" class="pt-5 min-vh-100">
+            <h1>Link</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias inventore facilis repudiandae harum consequuntur, odio vero, corrupti autem blanditiis obcaecati saepe quod aliquam nostrum, non eos laudantium rem a magnam.</p>
+        </section>
+        <section id="menu2" class="pt-5 min-vh-100">
+            <h1>Menu 2</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias inventore facilis repudiandae harum consequuntur, odio vero, corrupti autem blanditiis obcaecati saepe quod aliquam nostrum, non eos laudantium rem a magnam.</p>
+        </section>
+        <section id="menu3" class="pt-5 min-vh-100">
+            <h1>Menu 3</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias inventore facilis repudiandae harum consequuntur, odio vero, corrupti autem blanditiis obcaecati saepe quod aliquam nostrum, non eos laudantium rem a magnam.</p>
+        </section>
+        <section id="dom" class="pt-5 min-vh-100">
+            <h1>Dom</h1>
+            <a href="dom-menu.html">BelajarUbahWarna</a>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias inventore facilis repudiandae harum consequuntur, odio vero, corrupti autem blanditiis obcaecati saepe quod aliquam nostrum, non eos laudantium rem a magnam.</p>
+        </section>
+        <section id="link" class="pt-5 min-vh-100">
+            <h1>Link</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias inventore facilis repudiandae harum consequuntur, odio vero, corrupti autem blanditiis obcaecati saepe quod aliquam nostrum, non eos laudantium rem a magnam.</p>
+        </section>
+
+      </div>
+<button class="btn btn-primary" onclick="tambahKotak();">Tambah Kotak</button>
+
+    <button class="btn btn-danger" onclick="hapusKotak();">Hapus Kotak Terakhir</button>
+
+    <hr/>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="bg-color" class="form-label">Warna Latar Belakang: </label>
+                    <input type="color" id="bg-color" class="form-control" onchange="changeBgColor(this.value);" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="font-color" class="form-label">Warna Latar Belakang: </label>
+                    <input type="color" id="font-color" class="form-control" onchange="changeColor(this.value);" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        // membuat element h1
+        var judul = document.createElement('h1');
+
+        // menambahkan konten ke dalam elemen h1 
+        // judul.innerHTML = "Belajar JavaScript";
+        judul.textContent = "Belajar JavaScript";
+
+        // menambahkan atribut id ke elemen h1
+        judul.id = "judul";
+
+        // menambahkan atribut class ke elemen h1
+        judul.className = "merah";
+
+        // menambahkan elemen h1 ke dalam body 
+        document.body.append(judul);
+
+        function tambahKotak () {
+            let kotak = document.createElement('div');
+
+            // menghitung jumlah kotak saat ini
+            let counter = document.getElementsByClassName('kotak').length;
+
+            kotak.id = `kotak-${counter + 1}`;
+
+            kotak.className = "kotak w-50 h-50 bg-primary text-white";
+            kotak.textContent = "Kotak " + Number(counter+1);
+
+            // menambahkan css 
+            kotak.style.minHeight = "100px";
+            kotak.style.marginBottom = "20px";
+
+            document.body.append(kotak);
+
+            generateDeleteButton(counter + 1);
+
+        }
+
+        function generateDeleteButton (id) {
+            let button = document.createElement('button');
+            button.className = 'btn btn-hapus-'+ id +' btn-danger btn-sm pull-right';
+
+            button.textContent = "Hapus";
+
+            
+            document.getElementById('kotak-'+id).append(button);
+            
+            // menambahkan event listener
+            button.addEventListener('click', function(el){
+                console.log(el.target);
+
+                // document.getElementsByClassName(el.target).remove();                
+            });
+            
+        }
+
+        // function hapus
+        function hapusKotak () {
+            // console.log(id);
+            let jumlahKotak = document.getElementsByClassName('kotak').length;
+
+            document.getElementById('kotak-'+jumlahKotak).remove();
+        }
+
+        function changeBgColor(color) {
+            document.body.style.background = color;
+        }
+        
+        function changeColor(color) {
+            document.body.style.color = color;
+        }
+
+    </script>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+      
+</body>
+</html>
